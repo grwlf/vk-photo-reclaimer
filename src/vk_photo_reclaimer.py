@@ -1,19 +1,8 @@
-import argparse
-import concurrent.futures
-import errno
-import glob
-import logging
-import os
-import re
-import sys
-import textwrap
-import time
 
 import requests
-import tqdm
-import youtube_dl
 
-from os import makedirs, getpid
+from time import sleep, time
+from os import makedirs, getpid, utime
 from os.path import join, isfile, splitext, abspath
 from typing import Any, List, Iterable, Optional, Tuple, Union
 from sys import exit, stdout
@@ -200,14 +189,14 @@ def save(args:Args, session, user:UserId, a:Album, p:Photo)->Location:
           content = session.get(url).content
           break
         except requests.exceptions.ConnectionError:
-          time.sleep(5)
+          sleep(5)
       if content:
         content = session.get(url).content
         media_file.write(content)
       else:
         critical(f'Failed to get contents for {url}')
-    file_time = p.data.get('date', time.time())
-    os.utime(file_path, (file_time, file_time))
+    file_time = p.data.get('date', time())
+    utime(file_path, (file_time, file_time))
   return Location(file_path)
 
 def check_remove(args, session, vk, user:UserId,
@@ -222,7 +211,7 @@ def check_remove(args, session, vk, user:UserId,
         content = session.get(url).content
         break
       except requests.exceptions.ConnectionError:
-        time.sleep(5)
+        sleep(5)
     if content:
       content = session.get(url).content
       media_file.write(content)
