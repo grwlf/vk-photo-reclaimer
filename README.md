@@ -1,9 +1,9 @@
 VK Photo reclaimer
 ==================
 
-Here lies a script that surely makes your [Vkontakte](https://vk.com) profile
-look more official. It moves your all your ~~silly~~ (not silly!) photos from
-the VK account back to your hard drive.
+Here lies a [script](./src/vk_photo_reclaimer.py) that surely makes your
+[Vkontakte](https://vk.com) profile look more official. It moves your all your
+~~silly~~ (not silly!) photos from the VK account back to your hard drive.
 
 Seriously, there are some
 [opinions](https://tjournal.ru/news/75081-mozhno-li-sest-za-layk-i-sotrudnichaet-li-vkontakte-so-sledovatelyami-rol-socsetey-v-delah-za-reposty-i-memy)
@@ -13,6 +13,10 @@ for personal communications altogether.
 
 Usage
 -----
+
+```
+$ python3 ./src/vk_photo_reclaimer.py --login=mail@example.com --password=fooo --ignore-album=wall --ignore-album=profile --verbose=INFO me
+```
 
 Disclaimer: The author tried to make the loss of information impossible but he
 can't give you a 100% guarantee it is impossible indeed. Use this
@@ -27,6 +31,9 @@ The script works by:
    additional double-check before sending `delete` API calls). Also there is a
    related `--ignore-album` option.
 4. Wiping empty albums from the VK profile
+
+AFAIK, VK doesn't actually remove photos from their servers, but as we may hope,
+'deleting' media breaks the link between the media file and owner's identity.
 
 ```
 vk_photo_reclaimer.py [-h] --login STR [--password STR]
