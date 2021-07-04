@@ -1,7 +1,7 @@
 VK Photo reclaimer
 ==================
 
-Here lies a [script](./src/vk_photo_reclaimer.py) that surely makes your
+Here lies a [Script](./src/vk_photo_reclaimer.py) that surely makes your
 [Vkontakte](https://vk.com) profile look more official. It moves your all your
 ~~silly~~ (not silly!) photos from the VK account back to your hard drive.
 
