@@ -27,13 +27,13 @@ in rec {
     httplib2
     requests
     vk-api
+    pyls
+    pyls-mypy
   ];
 
   mypython = pkgs.python37.withPackages (pp:
     (pythondeps pp) ++ (with pp; [
       wheel
-      pyls
-      pyls-mypy
       ipython
       hypothesis
       pytest
@@ -47,20 +47,7 @@ in rec {
     pname = "vk-photo-reclaimer";
     version = "1.0.0";
     src = ./src;
-    # pythonPath = mypython.buildInputs;
     buildInputs = pythondeps pkgs.python37.pkgs;
-    # pythonPath = with mypython.pkgs; [
-    #   requests ipdb tqdm youtube-dl
-    # ];
-    # buildInputs = with mypython.paths; [ vk-api ];
-    # patchPhase = ''
-    #   for f in *py; do
-    #     echo "Patching $f"
-    #     sed -i "s|%DONGLEMAN_SPOOL%|\"${dongleman_spool}\"|g" "$f"
-    #     sed -i "s|%DONGLEMAN_TGSESSION%|\"${telegram_session}\"|g" "$f"
-    #     sed -i "s|%DONGLEMAN_SECRETS%|\"${python_secrets_json}\"|g" "$f"
-    #   done
-    # '';
     checkPhase = ''
       python3 ./vk_photo_reclaimer.py --help
     '';

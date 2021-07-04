@@ -182,6 +182,7 @@ def save(args:Args, session, user:UserId, a:Album, p:Photo)->Location:
   # set_trace()
   if not isfile(file_path):
     url = determine_max_photo_res(p.data)
+    # FIXME: 'filename too long'
     with open(file_path, 'wb') as media_file:
       content=None
       for i in range(4):
