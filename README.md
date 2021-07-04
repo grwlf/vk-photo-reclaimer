@@ -8,7 +8,7 @@ Here lies a [script](./src/vk_photo_reclaimer.py) that surely makes your
 Seriously, there are some
 [opinions](https://tjournal.ru/news/75081-mozhno-li-sest-za-layk-i-sotrudnichaet-li-vkontakte-so-sledovatelyami-rol-socsetey-v-delah-za-reposty-i-memy)
 saying that the VK policy is becoming less and less friendly towards the users.
-For good or for bad, but one possible solution would be stop using their service
+For good or for bad, one possible solution would be stop using their service
 for personal communications altogether.
 
 Usage
