@@ -24,13 +24,12 @@ script at your own risk.
 
 The script works by:
 
-0. Logging in to VK using the supplied login and password.
-1. Downloading all your photos to the hard drive, see `-o` option
-2. Asking for confirmation unless `--non-interactive` is set
-3. Removing the reclaimed photos from the VK account (The script makes an
-   additional double-check before sending `delete` API calls). Also there is a
-   related `--ignore-album` option.
-4. Wiping empty albums from the VK profile
+1. Logging in to VK using the supplied login and password.
+2. Downloading all your photos to the hard drive, see `-o` option
+3. Asking for confirmation unless `--non-interactive` is set
+4. Removing the reclaimed photos from the VK account (The script double-checks the file integrity before sending `delete` API calls). 
+   See also `--ignore-album` option.
+5. Wiping empty albums from the VK profile
 
 AFAIK, VK doesn't actually remove photos from their servers, but as we may hope,
 'deleting' media breaks the link between the media file and owner's identity.
